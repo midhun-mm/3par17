@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_product_stock_tree_dualcurrency" model="ir.ui.view">
+        <field name="name">product.product.stock.tree</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock_account.product_product_stock_tree_inherit_stock_account"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='avg_cost']" position="after">
+                <field name="currency_id_dif" invisible="1"/>
+                <field name="avg_cost_usd" optional="show" widget="monetary" options="{'currency_field': 'currency_id_dif'}"/>
+            </xpath>
+            <xpath expr="//field[@name='total_value']" position="after">
+                <field name="total_value_usd" optional="show" widget="monetary" options="{'currency_field': 'currency_id_dif'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

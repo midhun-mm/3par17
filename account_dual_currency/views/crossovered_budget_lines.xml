@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Heredar la vista account_budget.crossovered_budget_view_form-->
+        <record id="crossovered_budget_view_form_inherit" model="ir.ui.view">
+            <field name="name">crossovered_budget_view_form_inherit</field>
+            <field name="model">crossovered.budget</field>
+            <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='currency_id']" position="after">
+                    <field name="currency_id_dif" readonly="True" column_invisible="True"/>
+                </xpath>
+                <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='practical_amount']" position="after">
+                    <field name="practical_amount_bs" />
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Heredar la vista account_budget.view_crossovered_budget_line_tree -->
+        <record id="view_crossovered_budget_line_tree_inherit" model="ir.ui.view">
+            <field name="name">view_crossovered_budget_line_tree_inherit</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="currency_id_dif" readonly="True" column_invisible="True"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Heredar la vista account_budget.view_crossovered_budget_line_form -->
+        <record id="view_crossovered_budget_line_form_inherit" model="ir.ui.view">
+            <field name="name">view_crossovered_budget_line_form_inherit</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="currency_id_dif" readonly="1" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
