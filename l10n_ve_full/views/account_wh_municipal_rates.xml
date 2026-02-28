@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <!-- vista lista para el modelo account.wh.municipal.rates editable y creable en lista-->
+        <record id="view_wh_municipal_rates_tree" model="ir.ui.view">
+            <field name="name">account.wh.municipal.rates_tree</field>
+            <field name="model">account.wh.municipal.rates</field>
+            <field name="arch" type="xml">
+                <tree string="Municipal rates" editable="bottom">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="rate"/>
+                    <field name="ordenanza"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+        <!-- accion para el modelo account.wh.municipal.rates -->
+        <record id="action_wh_municipal_rates" model="ir.actions.act_window">
+            <field name="name">Municipal rates</field>
+            <field name="res_model">account.wh.municipal.rates</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- menu para el modelo account.wh.municipal.rates -->
+        <menuitem id="menu_wh_municipal_rates" name="Concepto de retención Municipal" parent="l10n_ve_full.menu_finance_fiscal_settings" sequence="7" action="action_wh_municipal_rates"/>
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_nro_control" model="ir.sequence">
+            <field name="name">Nro Control</field>
+            <field name="code">l10n_nro_control_sale</field>
+            <field name="prefix">00-</field>
+            <field eval="True" name="company_id"/>
+            <field name="padding">1</field>
+        </record>
+    </data>
+</odoo>
